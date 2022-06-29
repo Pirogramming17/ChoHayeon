@@ -4,3 +4,29 @@
   margin: 0 auto;
   width: 1080px;
 }
+
+#header-search > h1 {
+  width: 280px;
+  display: inline-block;
+}
+
+#header-search h2 {
+  display: none;
+}
+
+#header-search fieldset {
+  width: 520px;
+  display: inline-block;
+}
+
+/*
+#header-center h1 {
+    자손 선택자
+}
+*/
+
+/* 
+display block : margin O
+display inline-block : margin X, width,height 조절 가능 
+display inline : margin X, width,height 조절 X, 텍스트 자체만 크기 차지, span 속성
+*/
