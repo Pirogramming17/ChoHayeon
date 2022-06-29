@@ -1,4 +1,13 @@
-body {
+.body-bottom {
+  background: white;
+  height: 500px;
+}
+
+header {
+  margin: 0 auto;
+  width: 1080px;
+}
+main {
   margin: 0 auto;
   width: 1080px;
 }
@@ -43,22 +52,87 @@ fieldset {
 
 fieldset input {
   width: 250px;
-  height: 30px;
-  background-color: gray;
+  height: 35px;
+  background-color: rgb(94, 96, 103);
+  color: white;
   border-radius: 5px;
   border: none;
+  padding: 0 10px;
 }
 
 main {
-  height: 600px;
+  margin-top: 10px;
 }
 
 .main-left {
   display: inline-block;
+}
+
+.main-left-text {
+  display: inline-block;
   width: 500px;
+}
+
+.main-left-text > h1 {
+  margin: 10px 0;
+}
+
+.main-left-text > p {
+  line-height: 1.5;
+  color: gray;
 }
 
 .main-right {
   display: inline-block;
-  width: 500px;
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  color: black;
+  padding: 25px;
+  margin-left: 40px;
+  margin-bottom: 50px;
+}
+
+.main-right h4 {
+  margin: 8px 0;
+}
+
+main input {
+  height: 50px;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid rgb(183, 183, 183);
+  margin-bottom: 10px;
+}
+
+.main-right p {
+  font-size: 15px;
+  color: rgb(64, 64, 65);
+}
+
+.btn-Sign-up {
+  background: rgb(0, 180, 57);
+  padding: 10px 30px;
+  height: 65px;
+  width: 400px;
+  border-radius: 10px;
+  border: none;
+  font-size: 17px;
+  color: white;
+}
+
+.body-bottom {
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  left: 0px;
+  height: 300px;
+  width: 3000px;
+}
+
+.body-bottom img {
+  position: relative;
+  top: 0px;
+  left: 800px;
+  height: 300px;
 }
