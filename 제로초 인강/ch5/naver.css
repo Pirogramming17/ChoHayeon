@@ -8,6 +8,7 @@ html,
 body {
   margin: 0px;
   padding: 0px;
+  font-family: Dotum, "돋움", Helvetica, "Apple SD Gothic Neo", sans-serif;
 }
 
 #fixed {
@@ -29,13 +30,23 @@ body {
   width: 1px;
   height: 1px;
 }
+
+.relative {
+  position: relative;
+}
+
 .center-align {
   margin: 0 auto;
   width: 1080px;
 }
 
+header {
+  height: 170px;
+}
+
 #header-top {
   float: right;
+  margin-top: 8px;
 }
 
 #header-top span {
@@ -47,6 +58,7 @@ body {
 
 #header-search {
   clear: both;
+  padding-top: 12px;
 }
 
 #header-search a {
@@ -74,7 +86,7 @@ body {
 }
 
 #header-search fieldset {
-  margin-left: 20px;
+  margin-left: 18px;
   padding: 12px 0px 12px 10px;
   width: 521px;
   height: 49px;
@@ -82,6 +94,8 @@ body {
   border: 2px solid #03cf5d; /* hex */
   vertical-align: middle;
   position: relative;
+  top: -5px;
+  left: 1px;
 }
 
 #header-search fieldset input {
@@ -115,9 +129,15 @@ body {
   margin: 14px;
 }
 
+nav {
+  height: 46px;
+  border-top: 1px solid #f1f3f6;
+  border-bottom: 1px solid #d1d8e4;
+}
+
 nav ul {
+  display: inline-block;
   margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -136,7 +156,7 @@ nav li span:first-child {
   display: inline-block;
   background-image: url(https://raw.githubusercontent.com/ZeroCho/html-css-naver/master/ch4/sp_nav.png);
   background-repeat: no-repeat;
-  margin-left: 14px;
+  margin-left: 10px;
 }
 
 nav li:nth-child(2) span:first-child {
@@ -161,9 +181,25 @@ nav li:nth-child(6) span:first-child {
   width: 25px;
   background-position: -70px -285px;
 }
-nav li:nth-child(7) span:first-child {
-  width: 40px;
-  background-position: -100px -182px;
+
+.nav-divider {
+  display: inline-block;
+  margin: 18px 16px 0;
+  width: 1px;
+  height: 14px;
+  background: #ebeef3;
+}
+
+#search-ranking {
+  position: absolute;
+  top: 16px;
+  right: 30px;
+}
+
+#rank-number {
+  margin-top: -9px;
+  color: #00ab33;
+  font-size: 16px;
 }
 
 /*
