@@ -1,0 +1,57 @@
+/* 선택자(selector) */
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+#header-center {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+#header-search a {
+  text-decoration: none;
+}
+
+#header-search h1 {
+  width: 222px;
+  height: 52px;
+  display: inline-block;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+  background-position: 0 -161px;
+  background-size: 457px 434px;
+  vertical-align: middle;
+}
+
+#header-search h1 span {
+  display: none;
+}
+
+#header-search h2 {
+  display: none;
+}
+
+#header-search fieldset {
+  margin-left: 20px;
+  padding-top: 12px 0 12px 10px;
+  width: 520px;
+  height: 49px;
+  display: inline-block;
+  border: 2px solid #03cf5d;
+}
+
+/*
+  #header-center h1 {
+      자손 선택자
+  }
+  */
+
+/* 
+  display block : margin O
+  display inline-block : margin X, width,height 조절 가능 
+  display inline : margin X, width,height 조절 X, 텍스트 자체만 크기 차지, span 속성
+  */
