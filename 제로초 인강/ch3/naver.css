@@ -41,20 +41,38 @@
 
 #header-search fieldset {
   margin-left: 20px;
-  padding-top: 12px 0px 12px 10px;
+  padding: 12px 0px 12px 10px;
   width: 521px;
   height: 49px;
   display: inline-block;
   border: 2px solid #03cf5d; /* hex */
+  vertical-align: middle;
 }
 
 #header-search fieldset input {
   border: none;
   padding: 0px;
   outline: none;
-  vertical-align: middle;
 }
 
+#header-search fieldset button {
+  width: 49px;
+  height: 49px;
+  border: none;
+  padding: 0;
+  background: #03cf5d;
+}
+
+#search-image {
+  background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+  background-position: -420px 0px;
+  background-repeat: no-repeat;
+  background-size: 457px 434px;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  margin: 14px;
+}
 /*
   #header-center h1 자손 선택자
   #header-center > h1 자식 선택자
