@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#fixed {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
 .blind {
   position: absolute;
   overflow: hidden;
@@ -94,4 +111,6 @@
   display inline : margin X, width,height 조절 X, 텍스트 자체만 크기 차지, span 속성
   content-box : content = 기본 크기
   border-box : content + padding + border 다 합쳐서 기본 크기
+  position relative : 자신의 static 위치를 기반으로 움직임
+  position absolute : 자신의 containing block 위치를 기준으로 움직임
   */
