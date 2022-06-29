@@ -1,0 +1,64 @@
+body {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+header span {
+  margin-right: 10px;
+}
+
+.header-left {
+  display: inline-block;
+  margin-right: 100px;
+}
+
+.header-right {
+  display: inline-block;
+}
+
+body {
+  background-color: rgb(38, 40, 45);
+  color: white;
+}
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+fieldset {
+  display: inline-block;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+fieldset input {
+  width: 250px;
+  height: 30px;
+  background-color: gray;
+  border-radius: 5px;
+  border: none;
+}
+
+main {
+  height: 600px;
+}
+
+.main-left {
+  display: inline-block;
+  width: 500px;
+}
+
+.main-right {
+  display: inline-block;
+  width: 500px;
+}
