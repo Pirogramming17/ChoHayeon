@@ -1,0 +1,84 @@
+*{ box-sizing: border-box;}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.times {
+    font-size: 3em;
+}
+
+h2 {
+    margin-left: .3em;
+}
+
+i {
+    font-size: 1.5em;
+}
+
+.stopwatch {
+    padding: 2em 2em;
+    background-color: rgb(185, 217, 193);
+    border-radius: 1.5em;
+    box-shadow: .5em .5em .5em #a0a0a0;
+}
+
+.times {
+    background-color: white;
+    padding: .5em 2.5em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.buttons>button {
+    font-size: 1em;
+    width: 3.2em;
+    height: 3.2em;
+    border: none;
+    border-radius: 1.2em;
+}
+
+.record {
+    margin-top: 2em;
+}
+
+.recordList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8em 1em;
+    border-radius: 1.2em 1.2em 0 0;
+}
+
+.li__first {
+    background-color: rgb(185, 217, 193);
+
+}
+
+.btn__check {
+    border: 2px solid black;
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight:600;
+    margin: 0;
+}
