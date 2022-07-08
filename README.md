@@ -10,3 +10,5 @@
 ## 0707(목) 과제
 - 코딩도장 34, 35, 36, 38, 44, 45강 완강
 - python_problem
+<img width="1166" alt="problem1 실행화면" src="https://user-images.githubusercontent.com/94125863/178050354-20de3f89-04a5-44d5-8137-25595fddffea.png">
+<img width="1126" alt="problem2 실행화면" src="https://user-images.githubusercontent.com/94125863/178050358-a7c1260a-8c8f-40a4-abd7-d641dd46c84b.png">
