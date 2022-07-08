@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import random
 num = 0
 
 while True :
@@ -18,21 +19,21 @@ while True :
     cnt = brGame()
     for i in range(num, num+cnt) :
         num += 1
-        print('playerA :', i+1)
+        print('player :', i+1)
         if num == 31:
             break
     if num == 31:
-        print('playerB win!')
+        print('computer win!')
         break 
 
-    cnt = brGame()
+    cnt = random.randint(1,3)
     for i in range(num, num + cnt) :
         num += 1
-        print('playerB :', i+1)
+        print('computer :', i+1)
         if num == 31:
             break
     if num == 31:
-        print('playerA win!')
+        print('player win!')
         break 
 
 
