@@ -11,3 +11,6 @@ while True :
         print("정수를 입력하세요")
     except Exception as e:
         print("1,2,3 중 하나를 입력하세요", e)
+
+for i in range(num, cnt) :
+    print('playerA :', i+1)
