@@ -19,6 +19,7 @@ while True :
         if num == 31:
             break
     if num == 31:
+        print('playerB win!')
         break 
 
     while True :   
@@ -37,5 +38,6 @@ while True :
         if num == 31:
             break
     if num == 31:
+        print('playerA win!')
         break 
 
