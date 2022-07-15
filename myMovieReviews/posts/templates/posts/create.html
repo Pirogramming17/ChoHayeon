@@ -1,21 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>리뷰 작성하기</title>
 </head>
-<body>
+<body class = "container">
     <header>
-        <div class="body_container">
-            <div><a href = "{% url 'posts:home' %}">myMoviereviews</a></div>  
-            <div><a href = "{% url 'posts:create' %}">Add a New review</a></div>  
+        <div class="header_container">
+            <div class="logo"><a href = "{% url 'posts:home' %}">my<span style="color : rgb(255, 41, 77)">Movie</span>reviews</a></div>  
+            <div><a href = "{% url 'posts:create' %}">Add a New Review</a></div>  
         </div>
     </header>
     <div class="body_container">
-        <div class="form_container">
-            <form action="/create" method="post">
+            <form action="/create" class="form_container" method="post">
                 {% csrf_token %}
                 <div class="title">
                     <label for="title">제목:</label>
@@ -39,7 +41,7 @@
                 </div>
                 <div class="content">
                     <label for="content">리뷰:</label>
-                    <input type="text" id="content" name="content" />
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3"></textarea>
                 </div>
                 <div class="director">
                     <label for="director">감독:</label>
@@ -52,7 +54,7 @@
                 <div>
                     <input type="submit" value="Save">
                 </div>
-            </div>
         </form>
+        </div>
 </body>
 </html>

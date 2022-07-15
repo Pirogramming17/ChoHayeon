@@ -1,25 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>홈 화면</title>
 </head>
-<body>
+<body class = "container">
     <header>
-        <div class="body_container">
-            <div><a href = "{% url 'posts:home' %}">myMoviereviews</a></div>  
-            <div><a href = "{% url 'posts:create' %}">Add a New review</a></div>  
+        <div class="header_container">
+            <div class="logo"><a href = "{% url 'posts:home' %}">my<span style="color : rgb(255, 41, 77)">Movie</span>reviews</a></div>  
+            <div><a href = "{% url 'posts:create' %}">Add a New Review</a></div>  
         </div>
     </header>
-    {% for post in posts %}
-        <article>
-            <h1><a href="/post/{{post.id}}">{{post.title}}</a></h1>
-            <p>개봉년도 {{post.release_year}}</p>
-            <p>장르 {{post.genre}}</p>
-            <p>별점 {{post.star_rating}}</p>
+    <article>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="gallery_img"><img src="https://picsum.photos/seed/picsum{{post.id}}/220/300" alt=""></div>
+            <h4 style="margin-top : 0.5rem"><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+            <p class="text-secondary">개봉년도 <span class="text-black">{{post.release_year}}</span></p>
+            <p class="text-secondary">장르 <span class="text-black">{{post.genre}}</span></p>
+            <p class="text-secondary">별점 <span class="text-black">{{post.star_rating}}</span></p>
+            </div>
+            {% endfor %}
+            </div>
         </article>
-    {% endfor %}
 </body>
 </html>
