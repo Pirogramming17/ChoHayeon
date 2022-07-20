@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>DevTool Register</h2>
+        <h5>개발툴 등록 페이지 입니다. 자신이 다룰 수 있는 개발툴을 등록해 보세요.</h5>
+    </div>
+    <form action="{% url 'posts:devtoolregister' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="name">
+        <label for="name">이름:</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="kind">
+        <label for="kind">종류:</label>
+        <input type="text" name="kind" id="kind">
+      </div>
+      <div class="content">
+        <label for="content">개발툴 설명:</label>
+        <input type="text" name="content" id="content">
+      </div>
+      <div>
+        <input type="submit" value="submit">
+      </div>
+    </form>
+</body>
+</html>

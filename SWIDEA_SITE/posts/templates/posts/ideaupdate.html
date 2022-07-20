@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>Idea Detail Update</h2>
+        <h5>아이디어 세부내용 수정 페이지 입니다. 아이디어를 구체화하거나 내용을 변경해 보아요.</h5>
+    </div>
+    <form action="{% url 'posts:ideaupdate' post.id %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="title">
+        <label for="title">아이디어명:</label>
+        <input type="text" name="title" id="title" value="{{post.title}}">
+      </div>
+      <div class="image">
+        <label>Currently: </label> {{post.image}}<br>
+        <label for="image">Change: </label>
+        <input type="file" name="image" id="image">
+      </div>
+      <div class="content">
+        <label for="content">아이디어 설명:</label>
+        <input type="text" name="content" id="content" value="{{post.content}}">
+      </div>
+      <div class="interest">
+        <label for="interest">아이디어 관심도:</label>
+        <input type="text" name="interest" id="interest" value="{{post.interest}}">
+      </div>
+      <div class="devtool">
+        <label for="devtool">예상 개발툴:</label>
+        <select name="devtool" id="devtool">
+          {% for devtool in devtools %}
+          <option value="{{devtool}}" id="{{devtool}}">{{devtool}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <input type="submit" value="submit">
+      </div>
+    </form>
+</body>
+</html>

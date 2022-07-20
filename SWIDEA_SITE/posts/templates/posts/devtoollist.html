@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>DevTool List</h2>
+        <h5>개발툴 목록 페이지 입니다. 자신이 사용가능한 개발툴의 목록을 확인해 보세요.</h5>
+    </div>
+    {% for list in lists %}
+        <article>
+            <div>
+                <p>
+                  <a href="/devtooldetail/{{list.id}}">{{list.name}}</a>
+                </p>
+                <p>
+                    {{list.kind}}
+                </p>
+                <p>
+                    {{list.content}}
+                </p>
+            </div>
+        </article>
+    {% endfor %}
+</body>
+</html>

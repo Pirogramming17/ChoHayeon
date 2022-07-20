@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>Idea Register</h2>
+        <h5>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!</h5>
+    </div>
+    <form action="{% url 'posts:idearegister' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="title">
+        <label for="title">아이디어명:</label>
+        <input type="text" name="title" id="title">
+      </div>
+      <div class="title">
+        <label for="image">Image:</label>
+        <input type="file" name="image" id="image">
+      </div>
+      <div class="content">
+        <label for="content">아이디어 설명:</label>
+        <input type="text" name="content" id="content">
+      </div>
+      <div class="interest">
+        <label for="interest">아이디어 관심도:</label>
+        <input type="text" name="interest" id="interest">
+      </div>
+      <div class="devtool">
+        <label for="devtool">예상 개발툴:</label>
+        <select name="devtool" id="devtool">
+          {% for devtool in devtools %}
+          <option value="{{devtool}}">{{devtool}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <input type="submit" value="submit">
+      </div>
+    </form>
+</body>
+</html>

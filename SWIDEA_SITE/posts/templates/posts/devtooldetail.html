@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>Idea Detail</h2>
+        <h5>개인툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개인툴에 대한 상세내용을 확인해 보아요.</h5>
+    </div>
+    <article>
+      <div>
+          <h3>
+              {{list.name}}
+          </h3>
+          <p>
+              {{list.kind}}
+          </p>
+          <p>
+            {{list.content}}
+          </p>
+          <p>> 만들 수 있는 SW 목록 </p>
+            {% for post in posts %} {% if post.devtool.name == list.name %}
+            <a href="{% url 'posts:ideadetail' post.id %}">{{post.title}}</a>
+            {% endif %}{% endfor %}
+      </div>
+    </article>
+    <div>
+      <form action="{% url 'posts:devtooldelete' list.id %}" method="post">
+        {% csrf_token %}
+        <button>삭제</button>
+      </form>
+      <button onclick="location.href='/devtoollist'">목록</button>
+      <div><a href = "{% url 'posts:devtoolupdate' list.id %}">수정</a></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>Idea List</h2>
+        <h5>다른 아이디어를 잊지 말고 기록해보세요</h5>
+    </div>
+    <form method="GET" action="{% url 'posts:idealist' %}">
+    {% csrf_token %}
+    <div>
+        <select name="order" id="order">
+            <option value=''>--정렬기준--</option>
+            <option value="like" id="like">찜하기순</option>
+            <option value="created" id="created">등록순</option>
+            <option value="updated" id="updated">최신순</option>
+            <option value="name" id="name">이름순</option>
+        </select>
+        <button type="submit" value="order">정렬</button>
+    </div>
+    </form>
+    {% for post in posts %}
+        <article>
+            <div>
+            {% if post.image %}
+                <p>
+                    <img src="{{ post.image.url }}" />
+                </p>
+            {% endif %}
+                <p>
+                    <a href="/ideadetail/{{post.id}}">{{post.title}}</a> 
+                </p>
+                <p>
+                    예상 개발 툴 : {{post.devtool.name}}
+                </p>
+                <p>
+                    아이디어 관심도 : {{post.interest}}
+                </p>
+            </div>
+        </article>
+    {% endfor %}
+</body>
+</html>

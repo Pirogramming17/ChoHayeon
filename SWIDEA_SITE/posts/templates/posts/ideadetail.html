@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 화면</title>
+    <!-- <link rel="stylesheet" href="static/css/home.css"> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'posts:idearegister' %}">아이디어 등록</a>
+        <a href="{% url 'posts:idealist' %}">아이디어 관리</a>
+        <a href="{% url 'posts:devtoolregister' %}">개발툴 등록</a>
+        <a href="{% url 'posts:devtoollist' %}">개발툴 관리</a>
+    </nav>
+    <div class="title">
+        <h2>Idea Detail</h2>
+        <h5>아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</h5>
+    </div>
+    <article>
+      <div>
+          {% if post.image %}
+              <p>
+                  <img src="{{ post.image.url }}" />
+              </p>
+          {% endif %}
+          <h3>
+              {{post.title}}
+          </h3>
+          <p>
+              아이디어 관심도 : {{post.interest}}
+          </p>
+          <p>
+              예상 개발 툴 : 
+              <a href="/devtooldetail/{{post.id}}">{{devtool_name}}</a>
+          </p>
+          <p>
+              아이디어 설명 : {{post.content}}
+          </p>
+      </div>
+    </article>
+    <div>
+      <form action="{% url 'posts:ideadelete' post.id %}" method="post">
+        {% csrf_token %}
+        <button>삭제</button>
+      </form>
+      <button onclick="location.href='/'">목록</button>
+      <div><a href = "{% url 'posts:ideaupdate' post.id %}">수정</a></div>
+    </div>
+</body>
+</html>
