@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/f0c26c0bfa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="{% static 'layout.css' %}">
+    <title>instagram</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <!-- profile -->
+        <div class="profile">
+          <div class="profile__bar">
+            <div class="left">
+              <img src="{% static 'img/profile.png' %}" alt="profile_image">
+              <span class="user_id">Cho_hayeon</span>
+            </div>
+            <div class="right">
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </div>
+          <div class="post__img">
+            <img src="{% static 'img/cat.jpeg' %}" alt="post_image">
+          </div>
+        </div>
+        <!-- comments -->
+        <div class="comment__icons">
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-regular fa-comment"></i>
+          <i class="fa-regular fa-paper-plane"></i>
+        </div>
+        <div class="comment__top">
+          <span class="comment__user_id">Cho_hayeon</span>
+          <span>피로그래밍 17기 조하연</span>
+        </div>
+        {% for comment in comments %}
+          <div id='comment{{ comment.id }}' class="comment">
+            <div class="info">
+              <span class="comment__user_id">{{ comment.user_id }}</span>
+              <span class="comment__content">{{ comment.content }}</span>
+            </div>
+            <div class="comment__btns">
+              <div class="comment_delete" onclick="onClickDelete({{ comment.id }})">
+                <i class="fa-regular fa-trash-can"></i>
+              </div>
+              <div class="comment__like" onclick="onClickLike({{ comment.id }})">
+                {% if comment.like == True %}
+                  <i id="like{{ comment.id }}" class="fa-solid fa-heart"></i>
+                {% else %}
+                  <i id="like{{ comment.id }}" class="fa-regular fa-heart"></i>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <form action="" method="POST">
+          {% csrf_token %}
+          <input type="text" name="content" placeholder="댓글달기" />
+          <input type="submit" value="게시" />
+        </form>
+      </div>
+
+    </div>
+  </body>
+  <script>
+    const requestLike  = new XMLHttpRequest();
+    const onClickLike = (id) => {
+        const url = "/like_ajax/";
+        requestLike.open("POST", url, true);
+        requestLike.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestLike.send(JSON.stringify({id: id}));
+    }
+    requestLike.onreadystatechange = () => { 
+        if (requestLike.readyState === XMLHttpRequest.DONE){
+            if (requestLike.status < 400){
+                const {id} = JSON.parse(requestLike.response); 
+                const element = document.querySelector(`#like${id}`); 
+                if (element.classList.contains('fa-solid')) {
+                  element.classList.remove("fa-solid");
+                  element.classList.add("fa-regular");
+                }
+                else{
+                  element.classList.remove("fa-regular");
+                  element.classList.add("fa-solid");
+                }
+        }
+      }
+    }
+
+    const requestDelete  = new XMLHttpRequest();
+    const onClickDelete = (id) => {
+        const url = "/delete/";
+        requestDelete.open("POST", url, true);
+        requestDelete.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestDelete.send(JSON.stringify({id: id}));
+    }
+    requestDelete.onreadystatechange = () => { 
+        if (requestDelete.readyState === XMLHttpRequest.DONE){
+            if (requestDelete.status < 400){
+                const {id} = JSON.parse(requestDelete.response); 
+                const comment = document.querySelector(`#comment${id}`);
+                comment.remove(); 
+            }
+        }
+    }
+  </script>
